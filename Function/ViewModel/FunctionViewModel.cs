@@ -1,8 +1,9 @@
-﻿using System.Collections.ObjectModel;
+﻿using Function.Model;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace Function.Model
+namespace Function.ViewModel
 {
     /// <summary>
     /// Класс, для отображения функций ввиде списка данных
@@ -10,28 +11,28 @@ namespace Function.Model
     class FunctionViewModel : INotifyPropertyChanged
     {
         #region Поля
-        private AllFunctions selectedFunction;
-        public ObservableCollection<ResultFunction> resultFunctions;
+        private AllFunctions _selectedFunction;
+        public ObservableCollection<ResultFunction> _resultFunctions;
 
         #endregion
 
         #region Свойства
         public AllFunctions SelectedFunction
         {
-            get => selectedFunction;
+            get => _selectedFunction;
             set
             {
-                selectedFunction = value;
+                _selectedFunction = value;
                 OnPropertyChanged("SelectedFunction");
             }
         }
         public ObservableCollection<AllFunctions> AllFunctions { get; set; }
         public ObservableCollection<ResultFunction> ResultFunctions
         {
-            get => resultFunctions;
+            get => _resultFunctions;
             set
             {
-                resultFunctions = value;
+                _resultFunctions = value;
                 OnPropertyChanged("ResultFunctions");
             }
         }
@@ -43,7 +44,7 @@ namespace Function.Model
         {
             AllFunctions = new ObservableCollection<AllFunctions>
             {
-               //для проверки
+               //Значения для проверки
                new AllFunctions { },
                new AllFunctions { Name = 1 },
                new AllFunctions { Name = 2 },

@@ -6,37 +6,38 @@ namespace Function.Model
     class AllFunctions : INotifyPropertyChanged
     {
         #region Поля
-        private double coefficientA = 0;
-        private double coefficientB = 0;
-        private int coefficientC = 0;
+        private double _coefficientA = 0;
+        private double _coefficientB = 0;
+        private int _coefficientC = 0;
+
         #endregion
 
         #region Свойства
         public int Name { get; set; } = 0;
         public double CoefficientA
         {
-            get => coefficientA;
+            get => _coefficientA;
             set
             {
-                coefficientA = value;
+                _coefficientA = value;
                 OnPropertyChanged("CoefficientA");
             }
         }
         public double CoefficientB
         {
-            get => coefficientB;
+            get => _coefficientB;
             set
             {
-                coefficientB = value;
+                _coefficientB = value;
                 OnPropertyChanged("CoefficientB");
             }
         }
         public int CoefficientC
         {
-            get => coefficientC;
+            get => _coefficientC;
             set
             {
-                coefficientC = value;
+                _coefficientC = value;
                 OnPropertyChanged("CoefficientC");
             }
         }

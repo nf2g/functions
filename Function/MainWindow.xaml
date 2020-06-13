@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Function"
-        xmlns:col="clr-namespace:Function.Model"
+        xmlns:local_View="clr-namespace:Function.View"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded">
     <Window.Resources>
@@ -18,40 +18,12 @@
     <Grid>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.3*" />
-            <ColumnDefinition Width="0.3*" />
-            <ColumnDefinition Width="0.7*" />
+            <ColumnDefinition Width="0.4*" />
+            <ColumnDefinition Width="0.5*" />
         </Grid.ColumnDefinitions>
 
-        <ListBox Grid.Column="0" SelectionChanged="ListBox_SelectionChanged" >
-            <TextBlock FontSize="18" Text="Линейная" />
-            <TextBlock FontSize="18" Text="Квадратичная" />
-            <TextBlock FontSize="18" Text="Кубическая" />
-            <TextBlock FontSize="18" Text="Четвертой степени" />
-            <TextBlock FontSize="18" Text="Пятой степени" />
-        </ListBox>
-
-        <ScrollViewer Grid.Column="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
-            <StackPanel DataContext="{Binding SelectedFunction, UpdateSourceTrigger=PropertyChanged, IsAsync=True}" Margin="5">
-                <TextBlock Text="Коэффициент a" />
-                <TextBox Text="{Binding CoefficientA, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" SelectionChanged="ViewCalculateResult"/>
-                <TextBlock Text="Коэффициент b" />
-                <TextBox Text="{Binding CoefficientB, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" SelectionChanged="ViewCalculateResult"/>
-                <TextBlock Text="Коэффициент c" />
-                <ComboBox VerticalContentAlignment="Center" ItemsSource="{Binding CoefficientC, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
-                          Name="SelectedCoefficientC" SelectedItem="{Binding CoefficientC, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
-                          SelectionChanged="ViewCalculateResult"/>
-            </StackPanel>
-        </ScrollViewer>
-
-        <DataGrid Grid.Column="2" AutoGenerateColumns="False" SelectionChanged="ViewCalculateResult"
-                  ItemsSource="{Binding ResultFunctions, UpdateSourceTrigger=PropertyChanged, IsAsync=True, Mode=TwoWay}">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="x" Binding="{Binding ValueX, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Width="*" />
-                <DataGridTextColumn Header="y" Binding="{Binding ValueY, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Width="*" />
-                <DataGridTextColumn Header="f(x, y)" Binding="{Binding Result, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" Width="*" />
-            </DataGrid.Columns>
-        </DataGrid>
+        <local_View:ViewFunction Grid.Column="0" />
+        <local_View:ViewResult Grid.Column="1" />
 
     </Grid>
 </Window>

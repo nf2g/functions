@@ -7,37 +7,37 @@ namespace Function.Model
     class ResultFunction : INotifyPropertyChanged
     {
         #region Поля
-        private double valueX = 0;
-        private double valueY = 0;
-        private double result = 0;
+        private double _valueX = 0;
+        private double _valueY = 0;
+        private double _result = 0;
 
         #endregion
 
         #region Свойства
         public double ValueX
         {
-            get => valueX;
+            get => _valueX;
             set
             {
-                valueX = value;
+                _valueX = value;
                 OnPropertyChanged("ValueX");
             }
         }
         public double ValueY
         {
-            get => valueY;
+            get => _valueY;
             set
             {
-                valueY = value;
+                _valueY = value;
                 OnPropertyChanged("ValueY");
             }
         }
         public double Result
         {
-            get => result;
+            get => _result;
             set
             {
-                result = value;
+                _result = value;
                 OnPropertyChanged("Result");
             }
         }
